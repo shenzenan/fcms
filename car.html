@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>厂车管理系统 | 车辆管理</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="js/pace.js"></script>
+    <link rel="stylesheet" href="css/pace-theme-minimal.css"/>
+
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/css/bootstrap-dialog.min.css">
+    <link rel="stylesheet" href="css/framework.css"/>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="dashboard.html" class="navbar-brand">厂车管理系统</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">站点 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">查看站点 </a></li>
+                        <li><a href="#">在地图上查看 </a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">路线 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">查看路线 </a></li>
+                        <li><a href="#">在地图上查看 </a></li>
+                    </ul>
+                </li>
+                <li><a href="#">班次管理</a></li>
+                <li class="active"><a href="#">车辆管理</a></li>
+                <li><a href="#">员工管理</a></li>
+                <li><a href="#">统计查询</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">管理员 <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">查看账户</a></li>
+                        <li><a href="#">我的消息</a></li>
+                        <li class="divider">&nbsp;</li>
+                        <li><a href="#">注销登录</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-3 sidebar">
+            <div class="input-group">
+                <div class="input-group-btn search-panel">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                        <span id="search-concept">车牌号 </span><span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#licensePlate">车牌号 </a></li>
+                        <li><a href="#trademark">品牌 </a></li>
+                        <li><a href="#seat">座位数  </a></li>
+                        <li><a href="#vehicleLicense">行驶证 </a></li>
+                    </ul>
+                </div>
+                <input type="hidden" name="search-param" value="licensePlate" id="search-param">
+                <input type="text" class="form-control" name="x" placeholder="搜索" required>
+                <span class="input-group-btn">
+                    <button id ="search" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+            </div>
+
+            <ul class="nav nav-sidebar">
+                <li id="overview" class="active"><a href="#">车辆概况 </a></li>
+                <li id="all-car"><a href="#">所有车辆</a></li>
+                <li id="fault-car"><a href="#">故障车辆</a></li>
+                <li id="add-car"><a href="#">添加车辆</a></li>
+                <li id="export-data"><a href="#">导出数据</a></li>
+            </ul>
+        </div>
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-9 col-md-offset-3 main">
+            <div class="row placeholders">
+                <div id="overview-page" class="show"></div>
+
+                <div id="all-page" class="hidden">
+                    <table class="table table-striped table-bordered text-center" id="all-car-table">
+                        <caption class="text-center">车辆信息表</caption>
+                        <thead>
+                        <tr>
+                            <th class="text-center">编号</th>
+                            <th class="text-center">车牌号</th>
+                            <th class="text-center">品牌</th>
+                            <th class="text-center">座位数</th>
+                            <th class="text-center">注册日期</th>
+                            <th class="text-center">保险日期</th>
+                            <th class="text-center">行驶证</th>
+                            <th class="text-center">状态</th>
+                            <th class="text-center">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody id="all-tbody">
+                        </tbody>
+                    </table>
+                    <div class="text-center">
+                        <ul class="pagination pagination-sm" id="all-pagination">
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="fault-page" class="hidden">
+                    <table class="table table-striped table-bordered text-center" id="fault-car-table">
+                        <caption class="text-center">车辆信息表</caption>
+                        <thead>
+                        <tr>
+                            <th class="text-center">编号</th>
+                            <th class="text-center">车牌号</th>
+                            <th class="text-center">品牌</th>
+                            <th class="text-center">座位数</th>
+                            <th class="text-center">注册日期</th>
+                            <th class="text-center">保险日期</th>
+                            <th class="text-center">行驶证</th>
+                            <th class="text-center">状态</th>
+                            <th class="text-center">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody id="fault-tbody">
+                        </tbody>
+                    </table>
+                    <div class="text-center">
+                        <ul class="pagination pagination-sm" id="fault-pagination">
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="search-page" class="hidden">
+                    <table class="table table-striped table-bordered text-center" id="search-car-table">
+                        <caption class="text-center">车辆信息表</caption>
+                        <thead>
+                        <tr>
+                            <th class="text-center">编号</th>
+                            <th class="text-center">车牌号</th>
+                            <th class="text-center">品牌</th>
+                            <th class="text-center">座位数</th>
+                            <th class="text-center">注册日期</th>
+                            <th class="text-center">保险日期</th>
+                            <th class="text-center">行驶证</th>
+                            <th class="text-center">状态</th>
+                            <th class="text-center">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody id="search-tbody">
+                        </tbody>
+                    </table>
+                    <div class="text-center">
+                        <ul class="pagination pagination-sm" id="search-pagination">
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="add-page" class="hidden">
+                    <h3 class="left">添加车辆</h3>
+                    <form class="form-horizontal" method="POST" id="car-form">
+                        <fieldset>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="license-plate">车牌号</label>
+                                <div class="col-md-6">
+                                    <input id="license-plate" type="text" placeholder="请输入车牌号" class="form-control input-md" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="trademark">品牌</label>
+                                <div class="col-md-6">
+                                    <input id="trademark" type="text" placeholder="请输入汽车品牌" class="form-control input-md" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="seat">座位数</label>
+                                <div class="col-md-6">
+                                    <input id="seat" type="number" placeholder="请输入座位数" class="form-control input-md" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="register-date">注册日期</label>
+                                <div class="col-md-6">
+                                    <input id="register-date" type="date" class="form-control input-md">
+                                    <span class="help-block">请注意输入正确的日期格式</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="insurance-date">保险日期</label>
+                                <div class="col-md-6">
+                                    <input id="insurance-date" type="date" class="form-control input-md">
+                                    <span class="help-block">请注意输入正确的日期格式</span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="trademark">行驶证</label>
+                                <div class="col-md-6">
+                                    <input id="vehicle-license" type="text" placeholder="请输入行驶证编码" class="form-control input-md">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="state">状态</label>
+                                <div class="col-md-6">
+                                    <select id="state" class="form-control" required>
+                                        <option value="1">正在运行</option>
+                                        <option value="0">故障</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <div class="text-center">
+                            <button type="submit">保存</button>
+                            <button type="reset">重置</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/jquery-1.12.3.js"></script>
+<script src="bootstrap/js/bootstrap.js"></script>
+<script src="js/car.js"></script>
+<script src="js/jquery.twbsPagination.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.7/js/bootstrap-dialog.min.js"></script>
+</body>
+</html>

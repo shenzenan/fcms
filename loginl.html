@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>厂车管理系统 | 登录</title>
+    <link rel="stylesheet" href="css/login.css" />
+</head>
+<body>
+<div class="container">
+    <div class="card card-container">
+        <p>厂车管理系统 - 登录</p>
+        <p id="profile-name" class="profile-name-card"></p>
+        <form class="login-form">
+            <span id="reauth-email" class="reauth-email"></span>
+            <input type="text" id="name" class="form-control" placeholder="账户名/员工号" required autofocus>
+            <input type="password" id="password" class="form-control" placeholder="密码" required>
+            <div id="remember" class="checkbox">
+                <label> <input type="checkbox" value="remember-me"> 记住我 </label>
+                <a href="#" class="forgot-password"> 忘记密码? </a>
+            </div>
+            <div class="form-group has-error">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <input type="text" class="form-control" id="captcha" maxlength="4" name="captcha" placeholder="输入验证码"/>
+                    </div>
+                    <div class="col-xs-3">
+                        <img src="http://lorempixel.com/60/40" />
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">登录</button>
+        </form>
+    </div>
+</div>
+<script src="js/jquery-1.12.3.js"></script>
+<script src="js/login.js"></script>
+</body>
+</html>

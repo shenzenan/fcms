@@ -1,0 +1,26 @@
+#root {
+    height: 100vh;
+}
+
+#main{
+    height: 100%;
+    padding-top: 50px;
+}
+
+#topNavi{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index:9999; /* 让导航栏浮在网页的高层位置，遇到flash和图片时候也能始终保持最外层 */
+}
+
+#topNavi .ant-menu-submenu {
+    padding-left: 30px;
+    float: right;
+}
+
+/*#topNavi .ant-menu-submenu-horizontal{*/
+    /*padding-left: 30px;*/
+    /*float: right;*/
+/*}*/

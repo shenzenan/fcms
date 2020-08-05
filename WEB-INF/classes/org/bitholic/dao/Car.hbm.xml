@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+        package="org.bitholic.dao">
+
+    <class name="Car" table="car">
+        <id name="licensePlate" column="licensePlate">
+        </id>
+        <property name="trademark" column="trademark" not-null="true" />
+        <property name="seat" column="seat" not-null="true" />
+        <property name="registerDate" column="registerDate" />
+        <property name="insuranceDate" column="insuranceDate" />
+        <property name="vehicleLicense" column="vehicleLicense" />
+        <property name="state" column="state" not-null="true"/>
+
+    </class>
+</hibernate-mapping>

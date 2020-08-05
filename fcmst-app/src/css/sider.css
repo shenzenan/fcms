@@ -1,0 +1,34 @@
+/*#leftNavi {*/
+    /*position: absolute;*/
+    /*top: 50px;*/
+    /*left: 0;*/
+    /*bottom: 0;*/
+    /*width: 220px;*/
+/*}*/
+
+/*#content {*/
+    /*-webkit-box-sizing: border-box;*/
+    /*-moz-box-sizing: border-box;*/
+    /*box-sizing: border-box;*/
+    /*padding: 20px 20px 0 20px;*/
+    /*position: absolute;*/
+    /*top: 70px;*/
+    /*left: 240px;*/
+    /*right: 0;*/
+    /*bottom: 0;*/
+    /*overflow-y: auto;*/
+/*}*/
+
+.div-h{
+    height: 100%;
+}
+
+#leftNavi {
+    height: 100%;
+    bottom: 0;
+}
+
+#content {
+    height: 100%;
+    padding-top: 30px;
+}

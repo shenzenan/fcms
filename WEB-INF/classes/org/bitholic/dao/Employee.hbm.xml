@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+        package="org.bitholic.dao">
+
+    <class name="Employee" table="employee">
+        <id name="eid" column="eid">
+        </id>
+        <property name="egroup" column="egroup" />
+        <property name="address" column="address" not-null="true"/>
+        <property name="longitude" column="longitude" />
+        <property name="latitude" column="latitude" />
+        <property name="name" column="name" not-null="true" />
+        <property name="department" column="department" />
+        <property name="eshift" column="eshift"/>
+
+    </class>
+</hibernate-mapping>

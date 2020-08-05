@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping
+        package="org.bitholic.dao">
+
+    <class name="Station" table="station">
+        <id name="stationID" column="stationID">
+        </id>
+        <property name="longitude" column="longitude" />
+        <property name="latitude" column="latitude" />
+        <property name="stationName" column="stationName" />
+    </class>
+</hibernate-mapping>

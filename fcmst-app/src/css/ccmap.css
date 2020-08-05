@@ -1,0 +1,77 @@
+.div-h{
+    height: 100%;
+}
+
+#mapContainer{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    margin:0;
+    font-family:"微软雅黑";
+}
+
+#searchDiv{
+    display: table;
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+#mapMenu{
+    padding-left: 10px;
+}
+
+#mode{
+    display: table;
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+#save {
+    display: table;
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.olElement{
+    padding-left: 0px;
+    list-style-type: none;
+}
+
+.liElement{
+    list-style-type: none;
+    width: 100%;
+    font-size: 13px;
+    display: inline;
+    float: left;
+}
+
+.liInfo{
+    width: 50%;
+    float: left;
+}
+
+.liOperations{
+    width: 50%;
+    float: left;
+}
+
+.operationButton{
+    width: 30%;
+    float: left;
+}
+
+.lineMainOperationButton{
+    width: 50%;
+    float: left;
+}
+
+.spans6 {
+    list-style-type: none;
+    width: 80px;
+    font-size: 13px;
+    display: inline;
+}
